@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
-def homepage(request):
-    return render(request,'twitter/homepage.html',{})
 
-# Create your views here.
+class HomepageView(TemplateView):
+    template_name = 'twitter/homepage.html'

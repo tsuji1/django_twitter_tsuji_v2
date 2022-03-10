@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/bootstrap.min.css' %}">
+  <script src="{% static 'accounts/js/bootstrap.bundle.min.js' %}"></script>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  {% block content %}
+    {% block form %}
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    <div class="form-control">
+      {{ field }}
+    </div>
+      {% if field.help_text %}
+        <span class="form-text">{{ field.help_text }}</span>
+        <br>
+      {% endif %}
+    {% if field.errors %}
+      <p class="error message">{{ field.errors.0 }}</p>
+    {% endif %}
+    {% endfor %}
+    {% if form.non_field_errors %}
+    <div class="error message">
+      <ul class="list">
+        {% for non_field_error in form.non_field_errors %}
+        <li>{{ non_field_error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <input class="btn btn-primary" type="submit" value={{ submitvalue }}>
+  </form>
+
+  {% endblock %}
+  {% endblock %}
+</body>
+</html>
