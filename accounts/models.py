@@ -1,10 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import PermissionsMixin
-from django.contrib.auth.models import UserManager
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import PermissionsMixin, UserManager
 from django.contrib.auth.validators import ASCIIUsernameValidator
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.base_user import AbstractBaseUser
 
 
 class UserManager(BaseUserManager):

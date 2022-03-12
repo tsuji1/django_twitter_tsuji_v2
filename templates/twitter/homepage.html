@@ -3,7 +3,16 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+<p>hello! {{ user.username }} </p>
+<p>ログインできています！</p>
+
+<a class="btn btn-outline-danger" href="{% url 'logout' %}">ログアウト</a>
+
+{% else %}
+<p>hello!</p>
 <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-lg active" role="button">サインイン</a>
 
+{% endif %}
 
 {% endblock %}
