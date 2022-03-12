@@ -3,5 +3,5 @@ __pycache__
 *.sqlite3
 myenv
 local_settings.py
-static
-
+/static/accounts/*.css
+/static/accounts/*.js
