@@ -1,0 +1,9 @@
+{% extends 'twitter/base.html' %}
+{% block title %}Logged out{% endblock %}
+
+{% block content %}
+  <h1>ログアウトされました</h1>
+  <p>ありがとうございました</p>
+  <a href="{% url 'twitter:homepage' %}">戻る</a>
+  
+{% endblock %}

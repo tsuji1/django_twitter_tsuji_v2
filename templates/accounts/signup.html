@@ -1,0 +1,19 @@
+{% extends 'twitter/base.html' %}
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+<h1>新規アカウント作成です</h1>
+
+{% block form %}
+
+{% with submitvalue="アカウントを作成" %}
+
+{{ block.super }}
+
+{% endwith %}
+
+{% endblock %}
+
+
+
+{% endblock %}
