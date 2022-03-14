@@ -117,7 +117,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
-    'accounts.backends.UserAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 try:
     from .local_settings import *

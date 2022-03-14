@@ -17,15 +17,15 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('twitter:homepage')
 
     def form_valid(self, form):
-        if form.is_valid():
-            user = form.save()
-            if user is not None:
-                login(self.request, user)
+        form.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        if user is not None:
                 return HttpResponseRedirect(reverse_lazy('twitter:homepage'))
-            else:
-                return redirect(reverse('accounts:signup'))
         else:
-            redirect(reverse('accounts:signup'))
+                return redirect(reverse('accounts:signup'))
+
 
 
 class PasswordChangeView(CreateView):

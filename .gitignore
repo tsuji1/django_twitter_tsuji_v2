@@ -5,3 +5,4 @@ myenv
 local_settings.py
 /static/accounts/*.css
 /static/accounts/*.js
+static
